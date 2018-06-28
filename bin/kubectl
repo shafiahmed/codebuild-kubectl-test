@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+declare -r KUBECTL_VERSION="v1.10.3"
+declare -r HEPTIO_AUTHENTICATOR="1.10.3/2018-06-05"
+declare -r AWSCLI_VERSION="1.15.47"
+
+curl --max-time 300 -o /usr/local/bin/kubectl -L https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+curl --max-time 300 -o /usr/local/bin/heptio-authenticator-aws -L https://amazon-eks.s3-us-west-2.amazonaws.com/${HEPTIO_AUTHENTICATOR}/bin/linux/amd64/heptio-authenticator-aws
+chmod a+x /usr/local/bin/kubectl
+chmod a+x /usr/local/bin/heptio-authenticator-aws
+
+kubectl --kubeconfig=../kubeconfig get pods
