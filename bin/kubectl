@@ -14,4 +14,4 @@ chmod a+x /usr/local/bin/heptio-authenticator-aws
 
 ls -al /usr/local/bin
 ls -al ..
-kubectl --kubeconfig=../kubeconfig get pods
+kubectl --kubeconfig=${CODEBUILD_SRC_DIR}/kubeconfig get pods
